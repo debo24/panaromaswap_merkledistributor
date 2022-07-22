@@ -1,0 +1,47 @@
+{
+  "name": "panaromaswap_merkledistributor",
+  "description": "contract that distributes a balance of tokens according to a merkle root",
+  "version": "1.0.0",
+  "keywords": [
+    "panaromaswap",
+    "erc20"
+  ],
+  "publishConfig": {
+    "@debo24": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/debo24/panaromaswap_merkledistributor"
+  },
+  "files": [
+    "build"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "3.1.0",
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "axios": "^0.20.0",
+    "chai": "^4.2.0",
+    "commander": "^6.1.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethereumjs-util": "^7.0.4",
+    "mocha": "^6.2.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.0",
+    "solc": "0.6.11",
+    "ts-node": "^10.9.1",
+    "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "precompile": "rimraf ./build/",
+    "compile": "waffle",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "generate-merkle-root": "ts-node scripts/generate-merkle-root.ts",
+    "generate-merkle-root:example": "ts-node scripts/generate-merkle-root.ts --input scripts/example.json",
+    "prepublishOnly": "yarn test"
+  }
+}
